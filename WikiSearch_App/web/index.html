@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Wiki search</title>
+    <script src="eel.js"></script>
+    <script defer src=""></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="search.png">
+    <link href="https://fonts.googleapis.com/сss2?family=Anton&family=Lato&family=Lobster&family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/91e2f891d2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1 class='Wiki'>WikiSearch</h1>
+    <div class="search">
+   		<input type="text" name="" class="txt" placeholder="Найти..."/>
+   		<a class="btn">
+    	<i class="fas fa-search"></i>
+   		</a>
+  	</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="javascript">
+        async function display_info(){
+            let question = document.getElementById('text').value;
+
+            //вызываем функцию из python кода
+            let res = await eel.get_info(question)();
+            document.getElementById('info').innerHTML = res;
+        }
+        jQuery('#button').on('click', function(){
+        //при нажатии дает инфу
+
+            display_info();
+        });
+    </script>
+</body>
+</html>
